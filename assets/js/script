@@ -9,14 +9,6 @@ currentDay.textContent = currentDate.format("dddd, MMMM Do");
 var body = document.body;
 
 var timeContainer = document.querySelector("#container");
-// var timeBlock = document.getElementById("time-block");
-// var row = document.getElementById("row");
-// var hour = document.getElementById("hour");
-// var textArea = document.getElementById();
-// var saveBtn = document.getElementById("saveBtn");
-//var workDay = workHours.length - 1;
-
-// hour.textContent = workHours[i];
 
 var workHours = [
   "9AM",
@@ -33,42 +25,57 @@ var workHours = [
 var createPlanner = function () {
   for (var i = 0; i < workHours.length; i++) {
     var hourRow = document.createElement("div");
-    hourRow.classList.add("row");
-
-    var editArea = document.createElement("span");
+    hourRow.classList = "row time-block";
+    
+    var editArea = document.createElement("textarea");
     editArea.classList = "text-area col-9";
+    editArea.setAttribute('id', 'textarea' + i);
+    // pull stored data to populate planner rows-> data persists on refresh
+    // put getItem here
+    
+    // refer to hour times as index of array when setting block colors, ex: if on certain indices # when moment is at certain time then color will be "something"
+    // get current time, convert to an index and compare to index of workHours 
+    // 3 levels: less than, equal to, greater than (past present future)
+
 
     var hourNumber = document.createElement("p");
-    hourNumber.classList = "hour col-2";
+    hourNumber.classList = "hour col-2 description";
     hourNumber.textContent = workHours[i];
     console.log(workHours[i]);
-
+    
     var saveButton = document.createElement("button");
     saveButton.classList = "saveBtn col-1";
+    saveButton.setAttribute('id', 'saveButton' + i);
 
-    var finalPlannerRow = hourRow.append(hourNumber, editArea, saveButton);
+    hourRow.append(hourNumber, editArea, saveButton);
     
-
-    timeContainer.append(finalPlannerRow);
-    console.log(finalPlannerRow);
+    
+    timeContainer.append(hourRow);
+    console.log(hourRow);
   }
 };
 
+function saveText(event) {
+  // get id from button
+var buttonId = event.target.id;
+  // grab index from button ID
+  
+
+  // use index to create text area ID
+
+
+  // use ID to grab correct text area
+
+
+  // save text area value  
+
+
+
+
+  window.localStorage.setItem()
+}
+
 createPlanner();
-// var timeSpots = document.createElement("ul");
-// var editSlot = document.createElement("span");
-// var hourSlot = document.createElement("div");
-// for (i = 0; i < hours.length - 1; i++) {
-//     hourSlot.textContent = hours[i];
-// }
-// var saveButton = document.createElement("button");
-
-// var timeSlot = hourSlot[i].appendChild(editSlot).appendChild(saveButton);
-
-// timeBlocks.append(timeSpots);
-// for (i = 0; i < hours.length - 1; i++) {
-//     timeSpots.appendChild(timeSlot.length - 1);
-// }
 
 var currentDay = document.querySelector("#currentDay");
 var currentDate = moment();
