@@ -1,16 +1,52 @@
 var body = document.body;
 
-var timeContainer = document.getElementsByClassName("container");
-var timeBlock = document.getElementById("time-block");
-var row = document.getElementById("row");
-var hour = document.getElementById("hour");
-var textArea = document.getElementById()
-var saveBtn = document.getElementById("saveBtn");
+var timeContainer = document.querySelector("#container");
+// var timeBlock = document.getElementById("time-block");
+// var row = document.getElementById("row");
+// var hour = document.getElementById("hour");
+// var textArea = document.getElementById();
+// var saveBtn = document.getElementById("saveBtn");
 var workDay = workHours.length - 1;
 
-hour.textContent = workHours[i];
+// hour.textContent = workHours[i];
 
-var workHours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+var workHours = [
+  "9AM",
+  "10AM",
+  "11AM",
+  "12PM",
+  "1PM",
+  "2PM",
+  "3PM",
+  "4PM",
+  "5PM",
+];
+
+var createPlanner = function () {
+  for (var i = 0; i < workDay; i++) {
+    var hourRow = document.createElement("div");
+    hourRow.classList.add("row");
+
+    var editArea = document.createElement("span");
+    editArea.classList = "text-area col-9";
+
+    var hourNumber = document.createElement("p");
+    hourNumber.classList = "hour col-2";
+    hourNumber.textContent = workHours[i];
+    console.log(workHours[i]);
+
+    var saveButton = document.createElement("button");
+    saveButton.classList = "saveBtn col-1";
+
+    var finalPlannerRow = hourRow.append(hourNumber, editArea, saveButton);
+    
+
+    timeContainer.append(finalPlannerRow);
+    console.log(finalPlannerRow);
+  }
+};
+
+createPlanner();
 // var timeSpots = document.createElement("ul");
 // var editSlot = document.createElement("span");
 // var hourSlot = document.createElement("div");
