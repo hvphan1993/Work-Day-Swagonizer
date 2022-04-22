@@ -34,7 +34,10 @@ var createPlanner = function () {
     // put getItem here
     
     // refer to hour times as index of array when setting block colors, ex: if on certain indices # when moment is at certain time then color will be "something"
+    
     // get current time, convert to an index and compare to index of workHours 
+    
+    
     // 3 levels: less than, equal to, greater than (past present future)
 
 
@@ -58,8 +61,10 @@ var createPlanner = function () {
 function saveText(event) {
   // get id from button
 var buttonId = event.target.id;
+console.log(buttonId);
   // grab index from button ID
-  
+var buttonIndex = buttonId;
+// console.log(buttonIndex);
 
   // use index to create text area ID
 
@@ -72,7 +77,7 @@ var buttonId = event.target.id;
 
 
 
-  window.localStorage.setItem()
+  // window.localStorage.setItem()
 }
 
 createPlanner();
@@ -80,3 +85,4 @@ createPlanner();
 var currentDay = document.querySelector("#currentDay");
 var currentDate = moment();
 currentDay.textContent = currentDate.format("dddd, MMMM Do");
+
