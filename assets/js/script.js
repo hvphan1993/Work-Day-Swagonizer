@@ -58,12 +58,21 @@ var createPlanner = function () {
   }
 };
 
-function saveText(event) {
+createPlanner();
+
+function getButtonClass() {
+  return document.getElementsByClassName('saveBtn');
+}
+
+var button = getButtonClass();
+console.log(button);
+
+$(button).click(function saveText(event) {
   // get id from button
 var buttonId = event.target.id;
 console.log(buttonId);
   // grab index from button ID
-var buttonIndex = buttonId;
+// var buttonIndex = buttonId;
 // console.log(buttonIndex);
 
   // use index to create text area ID
@@ -78,11 +87,8 @@ var buttonIndex = buttonId;
 
 
   // window.localStorage.setItem()
-}
-
-createPlanner();
+})
 
 var currentDay = document.querySelector("#currentDay");
 var currentDate = moment();
 currentDay.textContent = currentDate.format("dddd, MMMM Do");
-
