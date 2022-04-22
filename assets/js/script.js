@@ -72,11 +72,12 @@ $(button).click(function saveText(event) {
 var buttonId = event.target.id;
 console.log(buttonId);
   // grab index from button ID
-// var buttonIndex = buttonId;
-// console.log(buttonIndex);
+var buttonIndex = buttonId;
+console.log(buttonIndex);
 
   // use index to create text area ID
-
+  var textId = $(this).siblings('.text-area').val();
+  console.log(textId);
 
   // use ID to grab correct text area
 
