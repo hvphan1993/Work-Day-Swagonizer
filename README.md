@@ -17,8 +17,13 @@ My first step towards creating the planner was to create an array of all the hou
 
 As each new element was created I also added classes and an ID to style the elements according to the given CSS.
 
-## Making the Planner Functional
+![]()
 
+To ensure the user's inputs persisted, I
+
+
+## Making the Planner Functional
+To make the planner functional in displaying past, present, and future events I needed to 
 
 ### Saving Daily Tasks
 To save the users text inputs, I had to first return the buttons created through the createPlanner function. I did this by grabbing all of the elements with the class of 'saveBtn' because each of my created buttons would have this class while still having a different id. I set this to var button so that when I set an on click event it would apply to all of my created save buttons. 

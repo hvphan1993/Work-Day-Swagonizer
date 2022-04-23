@@ -10,6 +10,8 @@ var body = document.body;
 
 var timeContainer = document.querySelector("#container");
 
+// var persistInput = saveText();
+
 var workHours = [
   "9AM",
   "10AM",
@@ -32,7 +34,8 @@ var createPlanner = function () {
     editArea.setAttribute("id", "textarea" + i);
     // pull stored data to populate planner rows-> data persists on refresh
     // put getItem here
-     
+
+
     // refer to hour times as index of array when setting block colors, ex: if on certain indices # when moment is at certain time then color will be "something"
 
     // get current time, convert to an index and compare to index of workHours
@@ -69,18 +72,20 @@ $(button).click(function saveText(event) {
   var buttonId = event.target.id;
   console.log(buttonId);
   // grab index from button ID
-  var buttonIndex = buttonId;
+  var buttonIndex = buttonId.charAt(buttonId.length - 1);
   console.log(buttonIndex + "stupendous") ;
 
   // use index to create text area ID
   var textId = $(this).siblings(".text-area").val();
-  console.log(textId);
+  console.log(textId + " this is text id");
 
-  // use ID to grab correct text area
-  
+  // grab correct text area
+  // var textKey = textId + buttonIndex;
+  // console.log(textKey + "burrito");
   // save text area value
-var textSave = window.localStorage.setItem("textId", JSON.stringify(textId));
-console.log(textSave);
+var textSave = window.localStorage.setItem(workHours[buttonIndex], JSON.stringify(textId));
+console.log(textSave + " call me textSave");
+return textSave;
 });
 
 var currentDay = document.querySelector("#currentDay");
