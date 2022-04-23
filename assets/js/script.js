@@ -75,7 +75,7 @@ $(button).click(function saveText(event) {
   var buttonIndex = buttonId.charAt(buttonId.length - 1);
   console.log(buttonIndex + "stupendous") ;
 
-  // use index to create text area ID
+  // grab text area ID
   var textId = $(this).siblings(".text-area").val();
   console.log(textId + " this is text id");
 
