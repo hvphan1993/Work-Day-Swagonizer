@@ -10,7 +10,8 @@ var body = document.body;
 
 var timeContainer = document.querySelector("#container");
 
-// var persistInput = saveText();
+// having difficulty getting storage data back out, trying to use return to use that variable in the getItem spot
+// var persistInput = getItem;
 
 var workHours = [
   "9AM",
@@ -34,7 +35,8 @@ var createPlanner = function () {
     editArea.setAttribute("id", "textarea" + i);
     // pull stored data to populate planner rows-> data persists on refresh
     // put getItem here
-
+    localStorage.getItem('textSave');
+    console.log('textSave' + " get item spot")
 
     // refer to hour times as index of array when setting block colors, ex: if on certain indices # when moment is at certain time then color will be "something"
 
@@ -83,9 +85,13 @@ $(button).click(function saveText(event) {
   // var textKey = textId + buttonIndex;
   // console.log(textKey + "burrito");
   // save text area value
-var textSave = window.localStorage.setItem(workHours[buttonIndex], JSON.stringify(textId));
-console.log(textSave + " call me textSave");
-return textSave;
+var keySave = workHours[buttonIndex];
+
+  window.localStorage.setItem(keySave, JSON.stringify(textId));
+console.log(keySave + " call me textSave");
+ var getItem = JSON.parse(localStorage.getItem('keySave'));
+ console.log(getItem + " here is getItem");
+ return getItem;
 });
 
 var currentDay = document.querySelector("#currentDay");
