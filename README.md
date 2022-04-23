@@ -19,8 +19,6 @@ As each new element was created I also added classes and an ID to style the elem
 
 ![]()
 
-To ensure the user's inputs persisted, I
-
 
 ## Making the Planner Functional
 To make the planner functional in displaying past, present, and future events I needed to 
@@ -30,6 +28,25 @@ To save the users text inputs, I had to first return the buttons created through
 
 ![]()
 
+To ensure the user's inputs persisted, I created the function saveText to trigger when any of the save buttons were clicked. This was done by first setting up the function getButtonClass to return from the document all of the elements with the class of saveBtn. This data was set in a separate variable of button. 
 
+![]()
+
+To save the user inputs into local storage I got the id of the button pressed using event.target.id. After finding the button's id I found the button's index by getting the last character of the id using .charAt(buttonId.length - 1). I was able to do this because when the hour-row elements were created, the index was appended to the end as each was iterated.
+
+![]()
+
+After getting the button's index I grabbed the text area next to the clicked button using the jquery method of $(this).siblings.
+
+![]()
+
+With the button's index and the text area connected to the same button, I stored them to local storage by setting the key value to be the value of workHours at the button's index (this will set the key to one of the hour rows created for the user to edit) and then using JSON.stringify to turn the textId (text area content) into a string to be parsed later on. 
+
+![]()
+
+To allow the user's data to persist, my next step was to
 
 ## How to Color-Code to Indicate Time
+
+
+## Links
