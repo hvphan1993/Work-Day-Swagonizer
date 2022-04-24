@@ -25,6 +25,8 @@ var workHours = [
   "5PM",
 ];
 
+var militaryTime = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+
 var createPlanner = function () {
   for (var i = 0; i < workHours.length; i++) {
     var hourRow = document.createElement("div");
@@ -35,14 +37,21 @@ var createPlanner = function () {
     editArea.setAttribute("id", "textarea" + i);
     // pull stored data to populate planner rows-> data persists on refresh
     // put getItem here
-    localStorage.getItem('textSave');
-    console.log('textSave' + " get item spot")
+    var persistData = JSON.parse(localStorage.getItem(workHours[i]));
+    console.log(persistData + " get item spot");
+    editArea.innerText = persistData;
 
     // refer to hour times as index of array when setting block colors, ex: if on certain indices # when moment is at certain time then color will be "something"
-
     // get current time, convert to an index and compare to index of workHours
-
     // 3 levels: less than, equal to, greater than (past present future)
+    if (currentDate.format('HH') < militaryTime[i]) {
+      editArea.classList.add("future");
+     } else if (currentDate.format('HH') > militaryTime[i]) {
+       editArea.classList.add("past");
+     } else if (currentDate.format('HH') == militaryTime[i]) {
+      editArea.classList.add("present");
+     }
+  
 
     var hourNumber = document.createElement("p");
     hourNumber.classList = "hour col-2 description";
@@ -50,7 +59,7 @@ var createPlanner = function () {
     console.log(workHours[i]);
 
     var saveButton = document.createElement("button");
-    saveButton.classList = "saveBtn col-1";
+    saveButton.classList = "saveBtn col-1 bi bi-save";
     saveButton.setAttribute("id", "saveButton" + i);
 
     hourRow.append(hourNumber, editArea, saveButton);
@@ -75,25 +84,15 @@ $(button).click(function saveText(event) {
   console.log(buttonId);
   // grab index from button ID
   var buttonIndex = buttonId.charAt(buttonId.length - 1);
-  console.log(buttonIndex + "stupendous") ;
+  console.log(buttonIndex + "stupendous");
 
-  // grab text area ID
+  // grab text area
   var textId = $(this).siblings(".text-area").val();
   console.log(textId + " this is text id");
 
-  // grab correct text area
-  // var textKey = textId + buttonIndex;
-  // console.log(textKey + "burrito");
   // save text area value
-var keySave = workHours[buttonIndex];
+  var keySave = workHours[buttonIndex];
 
   window.localStorage.setItem(keySave, JSON.stringify(textId));
-console.log(keySave + " call me textSave");
- var getItem = JSON.parse(localStorage.getItem('keySave'));
- console.log(getItem + " here is getItem");
- return getItem;
+  console.log(keySave + " call me textSave");
 });
-
-var currentDay = document.querySelector("#currentDay");
-var currentDate = moment();
-currentDay.textContent = currentDate.format("dddd, MMMM Do");

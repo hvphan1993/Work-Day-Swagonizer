@@ -11,7 +11,7 @@ To add the current date to the top of the page, I used moment() to get the curre
 ## Creating the Planner
 My first step towards creating the planner was to create an array of all the hours to be used in the planner (9AM to 5PM)called workHours. After this was set I created a function to iterate from 0 to less than workHours.length and create new divs on each iteration. Also created on each iterations were: a p element to house the hour in the day, a text area that the user could edit, and a button for the user to save their inputs. 
 
-![]()
+![creating hour row, edit area, and hour number element](./assets/images/editareaandhourrow.png)
 
 As each new element was created I also added classes and an ID to style the elements according to the given CSS.
 
@@ -40,9 +40,13 @@ With the button's index and the text area connected to the same button, I stored
 
 ### Getting User Inputs From Local Storage
 
-To allow the user's data to persist, my next step was to
+To allow the user's data to persist, my next step was to pull the value from the local storage at the key index of workHours[i] and then add it to the innerText of the editable text areas being created. This way, when the page is refreshed, the values will repopulate the divs as they are created and the user will continue to see their text inputs.
+
+![variable to get values from local storage](./assets/images/varpersistdata.png)
 
 ## How to Color-Code to Indicate Time
+To color code the rows I set up an array with the work hours set in military time. Since the military time array has the same number of values as workHours, I could compare the hour value of moment.js with the same index. I set up a conditional where the hour value of moment.js was compared to the index of the military time array and when certain conditions were met, the proper css classes were added to the editArea. The css contains the color coding we want so all I needed to do was add the correct class for the appropriate condition.
 
+![comparing moment.js hour value to military time index to color code](./assets/images/colorcoding.png)
 
 ## Links
