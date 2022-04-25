@@ -13,9 +13,9 @@ My first step towards creating the planner was to create an array of all the hou
 
 ![creating hour row, edit area, and hour number element](./assets/images/editareaandhourrow.png)
 
-As each new element was created I also added classes and an ID to style the elements according to the given CSS.
+As each new element was created I also added classes and an ID to style the elements according to the given CSS. A save icon was added to the save button elements by creating a new variable to create the element 'i' and then adding the appropriate bootstrap styling.
 
-![]()
+![using classList to add classes to dynamically created elements](./assets/images/classlist.png)
 
 
 ## Making the Planner Functional
@@ -50,3 +50,7 @@ To color code the rows I set up an array with the work hours set in military tim
 ![comparing moment.js hour value to military time index to color code](./assets/images/colorcoding.png)
 
 ## Links
+
+Github Repository Link: https://github.com/hvphan1993/Work-Day-Swagonizer.git
+
+Active Link: https://hvphan1993.github.io/Work-Day-Swagonizer/
