@@ -42,15 +42,16 @@ var createPlanner = function () {
     editArea.innerText = persistData;
 
     // refer to hour times as index of array when setting block colors, ex: if on certain indices # when moment is at certain time then color will be "something"
-    // get current time, and compare to index of hours array
+    // get current time, convert to an index and compare to index of workHours
     // 3 levels: less than, equal to, greater than (past present future)
-    if (currentDate.format("HH") < militaryTime[i]) {
+    if (currentDate.format('HH') < militaryTime[i]) {
       editArea.classList.add("future");
-    } else if (currentDate.format("HH") > militaryTime[i]) {
-      editArea.classList.add("past");
-    } else if (currentDate.format("HH") == militaryTime[i]) {
+     } else if (currentDate.format('HH') > militaryTime[i]) {
+       editArea.classList.add("past");
+     } else if (currentDate.format('HH') == militaryTime[i]) {
       editArea.classList.add("present");
-    }
+     }
+  
 
     var hourNumber = document.createElement("p");
     hourNumber.classList = "hour col-2 description";
@@ -58,12 +59,8 @@ var createPlanner = function () {
     console.log(workHours[i]);
 
     var saveButton = document.createElement("button");
-    saveButton.classList = "saveBtn col-1";
+    saveButton.classList = "saveBtn col-1 bi bi-save";
     saveButton.setAttribute("id", "saveButton" + i);
-
-    var saveIcon = document.createElement("i");
-    saveIcon.classList = "bi bi-save";
-    saveButton.appendChild(saveIcon);
 
     hourRow.append(hourNumber, editArea, saveButton);
 
